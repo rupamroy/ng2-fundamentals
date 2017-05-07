@@ -4,12 +4,14 @@
   <div class="col-md-4">
     <form (ngSubmit)="saveProfile(profileForm.value)" [formGroup]="profileForm" 
     autocomplete="off" novalidate>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'error': !validate('firstName') }">
         <label for="firstName">First Name:</label>
+        <em *ngIf="!validate('firstName')">Required</em>
         <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
       </div>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'error': !validate('lastName') }">
         <label for="lastName">Last Name:</label>
+        <em *ngIf="!validate('lastName')">Required</em>
         <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
       </div>
 
