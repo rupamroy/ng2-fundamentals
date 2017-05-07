@@ -9,7 +9,7 @@ import {
     EventDetailsComponent,
     EventDetailActivateGuard,
     EventsListResolver
-} from './events'
+} from './events/index'
 import { NavBarComponent } from './nav/navbar.component';
 import { ToastrService } from "./common/toastr.service";
 import { RouterModule } from "@angular/router";
