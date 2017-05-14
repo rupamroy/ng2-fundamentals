@@ -32,9 +32,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.firstName = new FormControl(this.authService.currentUser.firstName,
-      Validators.required);
+      [Validators.required, Validators.pattern('[a-zA-Z].*')]);
     this.lastName = new FormControl(this.authService.currentUser.lastName,
-      Validators.required);
+      [Validators.required, Validators.pattern('[a-zA-Z].*')]);
 
 
     this.profileForm = new FormGroup({
@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
   }
 
   validate(control) {
-    return this.profileForm.controls[control].valid && 
+    return this.profileForm.controls[control].valid ||
       this.profileForm.controls[control].untouched
   }
 
