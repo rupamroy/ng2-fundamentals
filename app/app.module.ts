@@ -14,6 +14,7 @@ import {
 } from './events/index'
 import { NavBarComponent } from './nav/navbar.component';
 import { ToastrService } from "./common/toastr.service";
+import { CollapsibleWellComponent } from "./common/collapsible-well.component";
 import { RouterModule } from "@angular/router";
 import { appRoutes } from "./routes";
 import { CreateEventComponent } from "./events/create-event.component";
@@ -37,7 +38,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         CreateEventComponent,
         Error404Component,
         CreateSessionComponent,
-        SessionListComponent
+        SessionListComponent,
+        CollapsibleWellComponent
     ],
     providers: [
         EventService,
