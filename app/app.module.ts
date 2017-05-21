@@ -8,7 +8,9 @@ import {
     EventService,
     EventDetailsComponent,
     EventDetailActivateGuard,
-    EventsListResolver
+    EventsListResolver,
+    CreateSessionComponent,
+    SessionListComponent
 } from './events/index'
 import { NavBarComponent } from './nav/navbar.component';
 import { ToastrService } from "./common/toastr.service";
@@ -33,7 +35,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         NavBarComponent,
         EventDetailsComponent,
         CreateEventComponent,
-        Error404Component
+        Error404Component,
+        CreateSessionComponent,
+        SessionListComponent
     ],
     providers: [
         EventService,
