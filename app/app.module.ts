@@ -14,8 +14,14 @@ import {
     DurationPipe
 } from './events/index'
 import { NavBarComponent } from './nav/navbar.component';
-import { TOASTR_TOKEN, Toastr } from "./common/toastr.service";
-import { CollapsibleWellComponent } from "./common/collapsible-well.component";
+import {
+    JQ_TOKEN,
+    TOASTR_TOKEN,
+    Toastr,
+    CollapsibleWellComponent,
+    SimpleModalComponent,
+    SimpleModalTriggerDirective
+} from "./common/index";
 import { RouterModule } from "@angular/router";
 import { appRoutes } from "./routes";
 import { CreateEventComponent } from "./events/create-event.component";
@@ -24,6 +30,7 @@ import { AuthService } from "./user/auth.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 declare let toastr: Toastr;
+declare let jQuery: Object;
 
 @NgModule({
     imports: [
@@ -43,6 +50,8 @@ declare let toastr: Toastr;
         CreateSessionComponent,
         SessionListComponent,
         CollapsibleWellComponent,
+        SimpleModalComponent,
+        SimpleModalTriggerDirective,
         DurationPipe
     ],
     providers: [
@@ -50,6 +59,10 @@ declare let toastr: Toastr;
         {
             provide: TOASTR_TOKEN,
             useValue: toastr
+        },
+        {
+            provide: JQ_TOKEN,
+            useValue: jQuery
         },
         EventDetailActivateGuard,
         {
@@ -66,8 +79,8 @@ export class AppModule {
 
 }
 
-function checkDirtyState(component: CreateEventComponent){
-    if(component.isDirty){
+function checkDirtyState(component: CreateEventComponent) {
+    if (component.isDirty) {
         return window.confirm('You have not saved your work, do you want to cancel?');
     }
     return true;
