@@ -12,7 +12,8 @@ import {
     CreateSessionComponent,
     SessionListComponent,
     DurationPipe,
-    UpvoteComponent
+    UpvoteComponent,
+    VoterService
 } from './events/index'
 import { NavBarComponent } from './nav/navbar.component';
 import {
@@ -72,7 +73,8 @@ declare let jQuery: Object;
             useValue: checkDirtyState
         },
         EventsListResolver,
-        AuthService
+        AuthService,
+        VoterService
 
     ],
     bootstrap: [EventsAppComponent]

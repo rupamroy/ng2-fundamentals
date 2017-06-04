@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from "events";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -18,6 +17,6 @@ export class UpvoteComponent implements OnInit {
     ngOnInit() { }
 
     onClick() {
-        this.vote.emit('vote', {});
+        this.vote.emit({});
     }
 }
