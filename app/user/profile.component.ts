@@ -65,4 +65,10 @@ export class ProfileComponent implements OnInit {
       this.profileForm.controls[control].untouched
   }
 
+  logout() {
+    this.authService.logout().subscribe((resp) => {
+      this.router.navigate(['/login']);
+    });
+  }
+
 }
