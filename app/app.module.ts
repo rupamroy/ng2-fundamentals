@@ -7,7 +7,7 @@ import {
     EventThumbnailComponent,
     EventService,
     EventDetailsComponent,
-    EventDetailActivateGuard,
+    EventResolver,
     EventsListResolver,
     CreateSessionComponent,
     SessionListComponent,
@@ -31,6 +31,7 @@ import { CreateEventComponent } from "./events/create-event.component";
 import { Error404Component } from "./errors/404.component";
 import { AuthService } from "./user/auth.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
 
 declare let toastr: Toastr;
 declare let jQuery: Object;
@@ -40,6 +41,7 @@ declare let jQuery: Object;
         BrowserModule,
         RouterModule.forRoot(appRoutes),
         FormsModule,
+        HttpModule,
         ReactiveFormsModule
     ],
     declarations: [
@@ -69,7 +71,7 @@ declare let jQuery: Object;
             provide: JQ_TOKEN,
             useValue: jQuery
         },
-        EventDetailActivateGuard,
+        EventResolver,
         {
             provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState

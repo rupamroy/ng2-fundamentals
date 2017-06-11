@@ -5,8 +5,8 @@ import { EventService } from "./shared/event.service";
 @Component({
     moduleId: module.id,
     templateUrl: 'create-event.component.html',
-     styles: [
-    `
+    styles: [
+        `
       em {
           float: right;
           color: #E05C65;
@@ -18,22 +18,23 @@ import { EventService } from "./shared/event.service";
       .error :-moz-placeholder {color: #999}
       .error :ms-input-placeholder {color: #999}
     `
-  ]
+    ]
 })
 
 export class CreateEventComponent implements OnInit {
     isDirty: boolean = true;
-    constructor(private router:Router, private eventService:EventService) { }
+    constructor(private router: Router, private eventService: EventService) { }
 
     ngOnInit() { }
 
-    cancel(){
+    cancel() {
         this.router.navigate(['/events'])
     }
 
-    saveEvent(formValues){
-        this.eventService.saveEvent(formValues);
-        this.isDirty = false;
-        this.router.navigate(['/events']);
+    saveEvent(formValues) {
+        this.eventService.saveEvent(formValues).subscribe((event) => {
+            this.isDirty = false;
+            this.router.navigate(['/events']);
+        });
     }
 }
