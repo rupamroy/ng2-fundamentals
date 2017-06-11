@@ -10,7 +10,7 @@ export class AuthService {
     constructor(private http: Http) { }
 
     loginUser(userName: string, password: string) {
-       let headers = new Headers({ "Content-Type": "application/json" });
+        let headers = new Headers({ "Content-Type": "application/json" });
         let options = new ResponseOptions({ headers: headers });
 
         let loginInfo = {
@@ -18,8 +18,8 @@ export class AuthService {
             password
         }
 
-        return this.http.post('/api/login', JSON.stringify(loginInfo), options).do((response)=> {
-            if(response) {
+        return this.http.post('/api/login', JSON.stringify(loginInfo), options).do((response) => {
+            if (response) {
                 return this.currentUser = <IUser>response.json().user;
             }
         }).catch(error => {
@@ -27,13 +27,27 @@ export class AuthService {
         });
     }
 
-    isAuthenticated () {
+    isAuthenticated() {
         return !!this.currentUser;
     }
 
-    updateCurrentUser(firstName, lastName){
+    checkAuthenticationStatus() {
+        return this.http.get('/api/currentIdentity').map((response: any) => {
+            if (response._body) {
+                return response.json();
+            } else {
+                return {};
+            }
+        }).do((resp) => {
+            if(!!resp.userName){
+                this.currentUser = resp;
+            }
+        }).subscribe();
+    }
+
+    updateCurrentUser(firstName, lastName) {
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
-    } 
+    }
 
 }
