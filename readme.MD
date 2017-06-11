@@ -17,3 +17,7 @@ Follow along with the course linked above. To start the server:
 npm install
 npm start
 ```
+
+User Name
+-----------------
+johnpapa - password can be anything
