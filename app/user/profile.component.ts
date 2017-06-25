@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core'
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { AuthService } from "./auth.service";
-import { Router } from "@angular/router";
-import { TOASTR_TOKEN, Toastr } from "../common/toastr.service";
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { TOASTR_TOKEN, Toastr } from '../common/toastr.service';
 
 @Component({
   moduleId: module.id,
@@ -27,8 +27,8 @@ export class ProfileComponent implements OnInit {
   firstName;
   lastName;
 
-  constructor(private authService: AuthService, private router: Router, 
-  @Inject(TOASTR_TOKEN) private toastr: Toastr) {
+  constructor(private authService: AuthService, private router: Router,
+              @Inject(TOASTR_TOKEN) private toastr: Toastr) {
 
   }
 
@@ -37,7 +37,6 @@ export class ProfileComponent implements OnInit {
       [Validators.required, Validators.pattern('[a-zA-Z].*')]);
     this.lastName = new FormControl(this.authService.currentUser.lastName,
       [Validators.required, Validators.pattern('[a-zA-Z].*')]);
-
 
     this.profileForm = new FormGroup({
       firstName: this.firstName,
@@ -52,7 +51,7 @@ export class ProfileComponent implements OnInit {
   saveProfile(formValues) {
     if (this.profileForm.valid) {
       this.authService.updateCurrentUser(formValues.firstName, formValues.lastName).subscribe((resp) => {
-        this.toastr.success("Provide saved successfully");
+        this.toastr.success('Provide saved successfully');
       });
       setTimeout(() => {
         this.router.navigate(['events']);
@@ -62,7 +61,7 @@ export class ProfileComponent implements OnInit {
 
   validate(control) {
     return this.profileForm.controls[control].valid ||
-      this.profileForm.controls[control].untouched
+      this.profileForm.controls[control].untouched;
   }
 
   logout() {

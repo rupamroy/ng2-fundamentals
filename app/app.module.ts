@@ -15,7 +15,7 @@ import {
     UpvoteComponent,
     VoterService,
     LocationValidatorDirective
-} from './events/index'
+} from './events/index';
 import { NavBarComponent } from './nav/navbar.component';
 import {
     JQ_TOKEN,
@@ -24,17 +24,17 @@ import {
     CollapsibleWellComponent,
     SimpleModalComponent,
     SimpleModalTriggerDirective
-} from "./common/index";
-import { RouterModule } from "@angular/router";
-import { appRoutes } from "./routes";
-import { CreateEventComponent } from "./events/create-event.component";
-import { Error404Component } from "./errors/404.component";
-import { AuthService } from "./user/auth.service";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
+} from './common/index';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
+import { CreateEventComponent } from './events/create-event.component';
+import { Error404Component } from './errors/404.component';
+import { AuthService } from './user/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 declare let toastr: Toastr;
-declare let jQuery: Object;
+declare let jQuery: any;
 
 @NgModule({
     imports: [

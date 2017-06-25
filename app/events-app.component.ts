@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { AuthService } from "./user/auth.service";
+import { AuthService } from './user/auth.service';
 
 @Component ({
     selector: 'events-app',
@@ -10,7 +10,7 @@ import { AuthService } from "./user/auth.service";
 })
 export class EventsAppComponent implements OnInit {
     constructor(private authService: AuthService) {
-        
+
     }
 
      ngOnInit(): void {

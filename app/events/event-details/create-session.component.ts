@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { ISession ,restrictedWords } from "../index";
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ISession , restrictedWords } from '../index';
 
 @Component({
     moduleId: module.id,
@@ -50,11 +49,11 @@ export class CreateSessionComponent implements OnInit {
             duration: this.duration,
             level: this.level,
             abstract: this.abstract
-        })
+        });
     }
-   
+
     saveSession(formValues) {
-        let session: ISession = {
+        const session: ISession = {
             id: undefined,
             name: formValues.name,
             presenter: formValues.presenter,
@@ -62,9 +61,8 @@ export class CreateSessionComponent implements OnInit {
             abstract: formValues.abstract,
             duration: +formValues.duration,
             voters: []
-        }
+        };
 
-        console.log(session);
         this.saveNewSession.emit(session);
     }
 

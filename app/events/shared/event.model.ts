@@ -5,11 +5,11 @@ export interface IEvent {
     time: string;
     price: number;
     imageUrl: string;
-    location? : {
+    location?: {
         address: string;
         city: string;
         country: string;
-    },
+    };
     onlineUri?: string;
     sessions?: ISession[];
 }

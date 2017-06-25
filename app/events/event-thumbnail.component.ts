@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IEvent } from "./index";
+import { IEvent } from './index';
 
 @Component({
     moduleId: module.id,
@@ -15,18 +15,17 @@ import { IEvent } from "./index";
 })
 
 export class EventThumbnailComponent implements OnInit {
-    ngOnInit(): void {
-        
-    }
-
     @Input() event: IEvent;
 
+    ngOnInit(): void {
+
+    }
+
     getStartTimeClass() {
-        if(this.event && this.event.time === '8:00 am'){
-            return ['green','bold'];
+        if(this.event && this.event.time === '8:00 am') {
+            return ['green', 'bold'];
         }
         return [];
     }
-
 
 }

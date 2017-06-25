@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Resolve } from "@angular/router";
-import { EventService } from "./shared/event.service";
+import { Resolve } from '@angular/router';
+import { EventService } from './shared/event.service';
 
 @Injectable()
 export class EventsListResolver {
@@ -11,4 +11,3 @@ export class EventsListResolver {
         return this.eventService.getEvents();
     }
 }
-

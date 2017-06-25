@@ -1,5 +1,5 @@
-import { ProfileComponent } from "./profile.component";
-import { LoginComponent } from "./login.component";
+import { ProfileComponent } from './profile.component';
+import { LoginComponent } from './login.component';
 
 export const userRoutes = [
     { path: 'profile',
@@ -7,4 +7,4 @@ export const userRoutes = [
      {
          path: 'login', component: LoginComponent
      }
-]
+];
