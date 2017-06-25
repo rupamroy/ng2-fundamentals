@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ISession } from '../index';
 import { Http, Headers, Response, ResponseOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class VoterService {
