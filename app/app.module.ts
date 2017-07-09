@@ -25,7 +25,7 @@ import {
     SimpleModalComponent,
     SimpleModalTriggerDirective
 } from './common/index';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { appRoutes } from './routes';
 import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
@@ -41,7 +41,7 @@ const jQuery: object = window['jQuery'];
 @NgModule({
     imports: [
         BrowserModule,
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}),
         FormsModule,
         HttpModule,
         ReactiveFormsModule
