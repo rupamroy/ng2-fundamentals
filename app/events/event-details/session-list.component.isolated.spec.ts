@@ -2,11 +2,13 @@ import { SessionListComponent } from './session-list.component';
 import { ISession } from '../shared/event.model';
 import { VoterService } from './voter.service';
 import { AuthService } from '../../user/auth.service';
+import { SimpleChanges } from '@angular/core';
 
 describe('Session list component', () => {
     let component: SessionListComponent;
     const mockVoterService: VoterService = jasmine.createSpyObj('mockVoterService', ['deleteVoter', 'addVoter']);
     const mockAuthService: AuthService = jasmine.createSpyObj('mockAuthService', ['loginUser']);
+    const changes: SimpleChanges = jasmine.createSpyObj('changes', []);
     beforeEach(() => {
         component = new SessionListComponent(mockAuthService, mockVoterService);
     });
@@ -21,7 +23,7 @@ describe('Session list component', () => {
             component.sortBy = 'name';
             component.eventId = 3;
 
-            component.ngOnChanges();
+            component.ngOnChanges(changes);
 
             expect(component.visibleSessions.length).toBe(2);
 
@@ -37,7 +39,7 @@ describe('Session list component', () => {
             component.sortBy = 'name';
             component.eventId = 3;
 
-            component.ngOnChanges();
+            component.ngOnChanges(changes);
 
             expect(component.visibleSessions[2].name).toBe('session3');
 

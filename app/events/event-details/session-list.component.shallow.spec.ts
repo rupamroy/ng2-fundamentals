@@ -1,5 +1,5 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { DebugElement, NO_ERRORS_SCHEMA, SimpleChanges } from '@angular/core';
 import { SessionListComponent } from './session-list.component';
 import { DurationPipe } from '../shared/duration.pipe';
 import { CollapsibleWellComponent } from '../../common/collapsible-well.component';
@@ -13,7 +13,7 @@ describe('SessionListComponent', () => {
         component: SessionListComponent,
         element: HTMLElement,
         debugEl: DebugElement;
-
+    const changes: SimpleChanges = jasmine.createSpyObj('changes', []);
     beforeEach(async(() => {
         const mockAuthService = {
             isAuthenticated: () => true,
@@ -57,7 +57,7 @@ describe('SessionListComponent', () => {
             component.sortBy = 'name';
             component.eventId = 4;
 
-            component.ngOnChanges();
+            component.ngOnChanges(changes);
 
             fixture.detectChanges();
 
