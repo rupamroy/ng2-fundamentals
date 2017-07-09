@@ -33,8 +33,10 @@ import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-declare let toastr: Toastr;
-declare let jQuery: any;
+// tslint:disable-next-line:no-string-literal
+const toastr: Toastr = window['toastr'];
+// tslint:disable-next-line:no-string-literal
+const jQuery: object = window['jQuery'];
 
 @NgModule({
     imports: [

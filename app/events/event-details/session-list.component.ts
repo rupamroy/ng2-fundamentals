@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ISession } from '../index';
 import { AuthService } from '../../user/auth.service';
 import { VoterService } from './voter.service';
@@ -20,7 +20,7 @@ export class SessionListComponent implements OnInit, OnChanges {
 
     ngOnInit() { }
 
-    ngOnChanges(): void {
+    ngOnChanges(changes: SimpleChanges): void {
         if (this.sessions) {
             this.filterSessions(this.filterBy);
             this.sortBy === 'name' ? this.visibleSessions.sort(sortByNameAsc)

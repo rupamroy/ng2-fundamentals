@@ -18,7 +18,7 @@ import { ISession, EventService } from '../events/index';
 export class NavBarComponent implements OnInit {
     searchTerm: string;
     foundSessions: ISession;
-    constructor(private authService: AuthService, private eventService: EventService) { }
+    constructor(public authService: AuthService, private eventService: EventService) { }
 
     ngOnInit() { }
 
