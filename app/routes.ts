@@ -5,6 +5,7 @@ import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
 import { EventsListResolver } from './events/event-list-resolver.service';
 import { CreateSessionComponent, EventResolver } from './events/index';
+import { userRoutes } from './user/user.routes';
 
 export const appRoutes: Routes = [
     {
@@ -26,5 +27,5 @@ export const appRoutes: Routes = [
     { path: 'events/session/new', component: CreateSessionComponent },
     { path: '', redirectTo: '/events', pathMatch: 'full' },
     { path: '404', component: Error404Component },
-    { path: 'user', loadChildren: 'app/user/user.module#UserModule' }
+    { path: 'user', children: userRoutes }
 ];
